@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 17:56:13 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/16 13:33:40 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/01/17 19:45:31 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanB
 {
 	private:
 		std::string name;
-		Weapon weapon;
+		Weapon* weapon;
 	public:
 		HumanB( std::string name );
 		~HumanB();

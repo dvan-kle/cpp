@@ -6,14 +6,14 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 17:28:32 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/12 17:55:54 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/01/17 19:51:39 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include <iostream>
 
-HumanA::HumanA( std::string name, Weapon& weapon ): weapon(weapon), name(name)
+HumanA::HumanA( std::string name, Weapon& weapon ): name(name), weapon(weapon)
 {
 }
 

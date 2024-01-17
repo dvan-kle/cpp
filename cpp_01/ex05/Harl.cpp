@@ -6,11 +6,12 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/16 15:27:46 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/16 15:31:09 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/01/17 15:09:48 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <cstdlib>
 
 void Harl::debug()
 {
@@ -41,14 +42,16 @@ Harl::~Harl()
 
 void Harl::complain(std::string level)
 {
-	if (level == "debug")
-		this->debug();
-	else if (level == "info")
-		this->info();
-	else if (level == "warning")
-		this->warning();
-	else if (level == "error")
-		this->error();
-	else
-		std::cout << "Invalid level" << std::endl;
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	funcArr array[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (levels[i] == level)
+		{
+			(this->*array[i])();
+			return ;
+		}
+	}
+	
 }

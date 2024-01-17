@@ -6,11 +6,11 @@
 #    By: dvan-kle <dvan-kle@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/12 16:56:07 by dvan-kle      #+#    #+#                  #
-#    Updated: 2024/01/12 17:06:03 by dvan-kle      ########   odam.nl          #
+#    Updated: 2024/01/17 16:45:32 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := main
+NAME        := hithisisbrain
 SOURCES     := main.cpp
 OBJECTS     := $(SOURCES:.cpp=.o)
 

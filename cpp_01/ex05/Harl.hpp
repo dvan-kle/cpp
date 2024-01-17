@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/16 15:26:07 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/16 15:27:32 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/01/17 15:09:26 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ class Harl
 		~Harl();
 		void complain(std::string level);
 };
+
+typedef void (Harl::*funcArr)();
 
 #endif
