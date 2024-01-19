@@ -6,11 +6,12 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/18 17:25:58 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/18 17:26:18 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/01/19 14:46:25 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 
 Fixed::Fixed()
 {
