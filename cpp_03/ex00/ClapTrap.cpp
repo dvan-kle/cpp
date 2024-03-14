@@ -38,7 +38,6 @@ void ClapTrap::attack(const std::string& target)
 		std::cout << "ClapTrap " << this->Name << " is dead and cannot attack!" << std::endl;
 		return ;
 	}
-	
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
