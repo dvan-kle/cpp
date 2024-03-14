@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 13:47:50 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/13 16:22:12 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/14 14:03:10 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,25 @@ class Fixed
 		
 };
 
-std::ostream& operator<<(std::ostream& stream, const Fixed& other);
-std::ostream& operator>(std::ostream& stream, const Fixed& other);
-std::ostream& operator<(std::ostream& stream, const Fixed& other);
-std::ostream& operator>=(std::ostream& stream, const Fixed& other);
-std::ostream& operator<=(std::ostream& stream, const Fixed& other);
-std::ostream& operator==(std::ostream& stream, const Fixed& other);
-std::ostream& operator!=(std::ostream& stream, const Fixed& other);
+bool operator>(const Fixed& a, const Fixed& b);
+bool operator<(const Fixed& a, const Fixed& b);
+bool operator>=(const Fixed& a, const Fixed& b);
+bool operator<=(const Fixed& a, const Fixed& b);
+bool operator==(const Fixed& a, const Fixed& b);
+bool operator!=(const Fixed& a, const Fixed& b);
+
+float operator+(const Fixed& a, const Fixed& b);
 
 std::ostream& operator+(std::ostream& stream, const Fixed& other);
 std::ostream& operator-(std::ostream& stream, const Fixed& other);
 std::ostream& operator*(std::ostream& stream, const Fixed& other);
 std::ostream& operator/(std::ostream& stream, const Fixed& other);
 
-std::ostream& operator++(std::ostream& stream, const Fixed& other);
-std::ostream& operator--(std::ostream& stream, const Fixed& other);
-std::ostream& operator++(std::ostream& stream, const Fixed& other);
-std::ostream& operator--(std::ostream& stream, const Fixed& other);
+Fixed operator++();
+Fixed operator--();
+Fixed operator++(int);
+Fixed operator--(int);
+
+
 
 #endif
