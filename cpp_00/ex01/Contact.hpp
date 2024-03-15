@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 12:22:46 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/12 12:26:15 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/15 16:15:11 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <string>
+
 class Contact
 {
 	public:

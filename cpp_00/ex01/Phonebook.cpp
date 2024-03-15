@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 12:36:26 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/12 15:47:32 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/15 16:55:36 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 
 PhoneBook::PhoneBook() : numContacts(0) {}
 
-void PhoneBook::addContact() {
-	if (numContacts == 8) {
+void PhoneBook::addContact()
+{
+    Contact newContact;
+	
+	if (numContacts == 8)
+	{
         for (int i = 0; i < 7; ++i)
                 contacts[i] = contacts[i + 1];
-            --numContacts;
+        --numContacts;
     }
 	
-    Contact newContact;
 	std::cout << "Enter first name: ";
 	std::cin.ignore();
 	std::getline(std::cin, newContact.first_name);
@@ -40,7 +43,8 @@ void PhoneBook::addContact() {
 	std::cout << "Contact added!" << std::endl;
 }
 
-void PhoneBook::displayContacts() {
+void PhoneBook::displayContacts()
+{
     std::cout 	<< std::setw(10) << "Index" << "|"
 				<< std::setw(10) << "First Name" << "|"
 				<< std::setw(10) << "Last Name" << "|"
@@ -52,8 +56,9 @@ void PhoneBook::displayContacts() {
 					<< std::setw(10) << subString(contacts[i].last_name) << "|"
 					<< std::setw(10) << subString(contacts[i].nickname) << std::endl;
 	}
-
+	
 	int index;
+
 	std::cout << "Enter index of contact to display: ";
 	std::cin >> index;
 	if (index >= 0 && index < numContacts)
@@ -62,8 +67,10 @@ void PhoneBook::displayContacts() {
 		std::cout << "Invalid index!" << std::endl;
 }
 
-void PhoneBook::displayContact(int index) {
+void PhoneBook::displayContact(int index)
+{
 	Contact selContact = contacts[index];
+	
     std::cout << "First name: " << selContact.first_name << std::endl;
 	std::cout << "Last name: " << selContact.last_name << std::endl;
 	std::cout << "Nickname: " << selContact.nickname << std::endl;
@@ -72,7 +79,8 @@ void PhoneBook::displayContact(int index) {
 
 }
 
-std::string PhoneBook::subString(std::string str) {
+std::string PhoneBook::subString(std::string str)
+{
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");
 	return (str);
