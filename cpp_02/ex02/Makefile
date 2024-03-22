@@ -6,11 +6,11 @@
 #    By: dvan-kle <dvan-kle@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 15:21:00 by dvan-kle      #+#    #+#                  #
-#    Updated: 2024/03/13 16:17:52 by dvan-kle      ########   odam.nl          #
+#    Updated: 2024/03/22 14:31:28 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := fixed
+NAME        := Overloads
 SOURCES     := main.cpp Fixed.cpp
 OBJECTS     := $(SOURCES:.cpp=.o)
 

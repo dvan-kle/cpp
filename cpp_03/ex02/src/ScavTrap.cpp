@@ -6,35 +6,34 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/22 13:58:53 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/22 15:53:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/22 16:20:53 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "../incl/ScavTrap.hpp"
+#include "../incl/ClapTrap.hpp"
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
-	std::cout << "A ScavTrap called: " << Name << " has been constructed" << std::endl;
+	std::cout << "ScavTrap called: " << Name << " has been constructed" << std::endl;
 	guard = false;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "A ScavTrap called: " << Name << " has been copied" << std::endl;
+	std::cout << "ScavTrap called: " << Name << " has been copied" << std::endl;
 	*this = other;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "A ScavTrap called: " << Name << " has been destructed" << std::endl;
+	std::cout << "ScavTrap called: " << Name << " has been destructed" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	std::cout << "A ScavTrap has been assigned" << std::endl;
-	if (this != &other)
-	{
+	std::cout << "ScavTrap has been assigned" << std::endl;
+	if (this != &other) {
 		Name = other.Name;
 		HitPoints = other.HitPoints;
 		EnergyPoints = other.EnergyPoints;

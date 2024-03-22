@@ -6,26 +6,36 @@
 #    By: dvan-kle <dvan-kle@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/03/07 15:21:00 by dvan-kle      #+#    #+#                  #
-#    Updated: 2024/03/22 14:32:08 by dvan-kle      ########   odam.nl          #
+#    Updated: 2024/03/22 15:58:54 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := Fixed
-SOURCES     := main.cpp Fixed.cpp
-OBJECTS     := $(SOURCES:.cpp=.o)
+NAME = FragTrap
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+VPATH = src
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+OBJ_DIR = obj
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	c++ -o $(NAME) $(OBJECTS)
+$(NAME) : $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@printf "$(NAME) compiled\n"
 
-%.o: %.cpp
-	c++ -Wall -Werror -Wextra -std=c++98 -c $(SOURCES)
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	@$(CC) $(FLAGS) -o $@ -c $<
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 
 clean:
-	rm -rf $(OBJECTS)
+	@rm -rf $(OBJ_DIR)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:
+	@rm -rf $(OBJ_DIR) $(NAME)
 
 re: fclean all
+
+PHONY: all clean fclean re
