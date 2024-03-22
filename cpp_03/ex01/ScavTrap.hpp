@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/12 16:09:02 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/21 12:41:29 by dvan-kle      ########   odam.nl         */
+/*   Created: 2024/03/22 13:41:18 by dvan-kle      #+#    #+#                 */
+/*   Updated: 2024/03/22 13:51:12 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main()
+# include <iostream>
+# include <string>
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	Zombie *zombie = newZombie("Zombie1");
-	zombie->announce();
-	delete zombie;
-	randomChump("Zombie2");
-	return 0;
-}                                                                                        
+	public:
+		ScavTrap(std::string Name);
+		ScavTrap(const ScavTrap& other);
+		ScavTrap& operator=(const ScavTrap& other);
+		~ScavTrap();
+		void attack(const std::string& target);
+		void guardGate();
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 12:36:26 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/15 16:55:36 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/21 10:16:37 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : numContacts(0) {}
+PhoneBook::PhoneBook()
+{
+	numContacts = 0;
+}
 
 void PhoneBook::addContact()
 {

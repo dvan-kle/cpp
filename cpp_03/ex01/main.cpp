@@ -5,18 +5,24 @@
 /*                                                     +:+                    */
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/12 16:09:02 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/21 12:41:29 by dvan-kle      ########   odam.nl         */
+/*   Created: 2024/03/22 13:36:07 by dvan-kle      #+#    #+#                 */
+/*   Updated: 2024/03/22 14:19:10 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main()
+int main(void)
 {
-	Zombie *zombie = newZombie("Zombie1");
-	zombie->announce();
-	delete zombie;
-	randomChump("Zombie2");
-	return 0;
-}                                                                                        
+	ClapTrap claptrap("Jannes");
+	ScavTrap scavtrap("Henk");
+
+	claptrap.attack("Tijmen");
+	claptrap.takeDamage(10);
+	claptrap.beRepaired(5);
+
+	scavtrap.attack("Tijmen");
+	scavtrap.guardGate();
+	return (0);
+}

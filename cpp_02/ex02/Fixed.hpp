@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/08 13:47:50 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/15 14:31:12 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/03/22 13:09:19 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,35 @@ class Fixed
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 		
-	bool operator>(const Fixed& a, const Fixed& b);
-	bool operator<(const Fixed& a, const Fixed& b);
-	bool operator>=(const Fixed& a, const Fixed& b);
-	bool operator<=(const Fixed& a, const Fixed& b);
-	bool operator==(const Fixed& a, const Fixed& b);
-	bool operator!=(const Fixed& a, const Fixed& b);
+	// Comparison operators
+	bool	operator>(const Fixed &other) const;
+	bool	operator<(const Fixed &other) const;
+	bool	operator>=(const Fixed &other) const;
+	bool	operator<=(const Fixed &other) const;
+	bool	operator==(const Fixed &other) const;
+	bool	operator!=(const Fixed &other) const;
 
-	float operator+(const Fixed& a, const Fixed& b);
+	// Mathematical operators
+	Fixed	operator+(const Fixed &other) const;
+	Fixed	operator-(const Fixed &other) const;
+	Fixed	operator*(const Fixed &other) const;
+	Fixed	operator/(const Fixed &other) const;
+	
+	// Increment and decrement operators
+	Fixed&	operator++(void); // Prefix
+	Fixed	operator++(int); // Postfix
+	Fixed&	operator--(void); // Prefix
+	Fixed	operator--(int); //Postfix
 
-	std::ostream& operator+(std::ostream& stream, const Fixed& other);
-	std::ostream& operator-(std::ostream& stream, const Fixed& other);
-	std::ostream& operator*(std::ostream& stream, const Fixed& other);
-	std::ostream& operator/(std::ostream& stream, const Fixed& other);
-
-	Fixed operator++();
-	Fixed operator--();
-	Fixed operator++(int);
-	Fixed operator--(int);
+	// Min and Max functions
+	static Fixed&		min(Fixed &a, Fixed &b);
+	static Fixed&		max(Fixed &a, Fixed &b);
+	static const Fixed&	min(const Fixed &a, const Fixed &b);
+	static const Fixed&	max(const Fixed &a, const Fixed &b);
+	
 };
 
-
+std::ostream& operator<<(std::ostream& stream, const Fixed& other);
 
 
 #endif
