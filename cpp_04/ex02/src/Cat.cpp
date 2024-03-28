@@ -2,8 +2,9 @@
 
 Cat::Cat()
 {
-	std::cout << "Cat default constructor called" << std::endl;
 	this->type = "Cat";
+	this->brain = new Brain();
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
@@ -22,6 +23,7 @@ Cat& Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
+	delete this->brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 

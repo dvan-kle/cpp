@@ -1,9 +1,9 @@
-NAME = Polymorphism
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+NAME = Abstract
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 CC = c++
 
 all: $(NAME)
