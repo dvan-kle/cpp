@@ -5,10 +5,9 @@
 
 class Animal
 {
-	private:
-		Animal();
 	protected:
 		std::string type;
+		Animal();
 	public:
 		Animal(const Animal& other);
 		Animal& operator=(const Animal &other);
