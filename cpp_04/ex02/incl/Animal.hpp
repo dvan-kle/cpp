@@ -17,4 +17,4 @@ class Animal
 		std::string getType() const;
 };
 
-#endif
+#endify
