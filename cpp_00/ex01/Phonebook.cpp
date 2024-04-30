@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 12:36:26 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/21 10:16:37 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/04/30 13:09:09 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void PhoneBook::addContact()
 	
 	std::cout << "Enter first name: ";
 	std::cin.ignore();
-	std::getline(std::cin, newContact.first_name);
+	newContact.set_first_name();
 	std::cout << "Enter last name: ";
-	std::getline(std::cin, newContact.last_name);
+	newContact.set_last_name();
 	std::cout << "Enter nickname: ";
-	std::getline(std::cin, newContact.nickname);
+	newContact.set_nickname();
 	std::cout << "Enter phone number: ";
-	std::getline(std::cin, newContact.phone_number);
+	newContact.set_phone_number();
 	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, newContact.darkest_secret);
+	newContact.set_darkest_secret();
 	
 	contacts[numContacts++] = newContact;
 	std::cout << "Contact added!" << std::endl;
@@ -55,9 +55,9 @@ void PhoneBook::displayContacts()
 	for (int i = 0; i < numContacts; ++i)
 	{
 		std::cout 	<< std::setw(10) << i  << "|"
-					<< std::setw(10) << subString(contacts[i].first_name) << "|"
-					<< std::setw(10) << subString(contacts[i].last_name) << "|"
-					<< std::setw(10) << subString(contacts[i].nickname) << std::endl;
+					<< std::setw(10) << subString(contacts[i].get_first_name()) << "|"
+					<< std::setw(10) << subString(contacts[i].get_last_name()) << "|"
+					<< std::setw(10) << subString(contacts[i].get_nickname()) << std::endl;
 	}
 	
 	int index;
@@ -74,11 +74,11 @@ void PhoneBook::displayContact(int index)
 {
 	Contact selContact = contacts[index];
 	
-    std::cout << "First name: " << selContact.first_name << std::endl;
-	std::cout << "Last name: " << selContact.last_name << std::endl;
-	std::cout << "Nickname: " << selContact.nickname << std::endl;
-	std::cout << "Phone number: " << selContact.phone_number << std::endl;
-	std::cout << "Darkest secret: " << selContact.darkest_secret << std::endl;
+    std::cout << "First name: " << selContact.get_first_name() << std::endl;
+	std::cout << "Last name: " << selContact.get_last_name() << std::endl;
+	std::cout << "Nickname: " << selContact.get_nickname() << std::endl;
+	std::cout << "Phone number: " << selContact.get_phone_number() << std::endl;
+	std::cout << "Darkest secret: " << selContact.get_darkest_secret() << std::endl;
 
 }
 

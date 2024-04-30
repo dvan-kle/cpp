@@ -6,12 +6,12 @@
 #    By: dvan-kle <dvan-kle@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/12 12:22:59 by dvan-kle      #+#    #+#                  #
-#    Updated: 2024/01/12 15:47:01 by dvan-kle      ########   odam.nl          #
+#    Updated: 2024/04/30 13:04:27 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        := PhoneBook
-SOURCES     := main.cpp Phonebook.cpp
+SOURCES     := main.cpp Phonebook.cpp Contact.cpp
 OBJECTS     := $(SOURCES:.cpp=.o)
 
 all: $(NAME)
