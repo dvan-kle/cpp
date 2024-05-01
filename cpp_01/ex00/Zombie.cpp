@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 15:59:00 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/21 10:38:58 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/04/30 13:43:23 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ Zombie::~Zombie()
 
 void Zombie::announce()
 {
-	std::cout << this->name << " BraiiiiiiinnnzzzZ...\n";
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
 };

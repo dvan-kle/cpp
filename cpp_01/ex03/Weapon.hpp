@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/12 17:09:54 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/16 13:36:03 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/04/30 15:08:55 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Weapon{
 	private:
 		std::string type;
 	public:
-	Weapon(const std::string& weaponType);
-	~Weapon();
-	const std::string& getType();
-	void setType(std::string newType);
+		Weapon(const std::string& weaponType);
+		~Weapon();
+		const std::string& getType();
+		void setType(std::string newType);
 };
 
 #endif

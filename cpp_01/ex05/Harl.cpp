@@ -6,12 +6,21 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/16 15:27:46 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/01/17 15:09:48 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/05/01 17:50:47 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <cstdlib>
+
+Harl::Harl()
+{
+}
+
+
+Harl::~Harl()
+{
+}
 
 void Harl::debug()
 {
@@ -31,13 +40,6 @@ void Harl::warning()
 void Harl::error()
 {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
-}
-Harl::Harl()
-{
-}
-
-Harl::~Harl()
-{
 }
 
 void Harl::complain(std::string level)

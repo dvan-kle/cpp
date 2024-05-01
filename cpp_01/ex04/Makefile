@@ -6,11 +6,11 @@
 #    By: dvan-kle <dvan-kle@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/17 16:46:14 by dvan-kle      #+#    #+#                  #
-#    Updated: 2024/01/17 16:46:49 by dvan-kle      ########   odam.nl          #
+#    Updated: 2024/05/01 14:33:19 by dvan-kle      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := Sed
+NAME        := Replace
 SOURCES     := main.cpp
 OBJECTS     := $(SOURCES:.cpp=.o)
 
@@ -20,7 +20,7 @@ $(NAME): $(OBJECTS)
 	c++ -o $(NAME) $(OBJECTS)
 
 %.o: %.cpp
-	c++ -Wall -Werror -Wextra -std=c++98 -c $(SOURCES)
+	c++ -Wall -Werror -Wextra -c $(SOURCES)
 
 clean:
 	rm -rf $(OBJECTS)
