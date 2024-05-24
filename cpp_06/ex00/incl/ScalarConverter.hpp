@@ -16,5 +16,11 @@ class ScalarConverter
 {
 	private:
 		ScalarConverter();
+
 		~ScalarConverter();	
+	public:
+		ScalarConverter(ScalarConverter const & src);
+		ScalarConverter & operator=(ScalarConverter const & src);
+
+		// jatoch
 };
