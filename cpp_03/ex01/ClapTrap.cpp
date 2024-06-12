@@ -14,13 +14,10 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other)
-	{
-		this->Name = other.Name;
-		this->HitPoints = other.HitPoints;
-		this->EnergyPoints = other.EnergyPoints;
-		this->AttackDamage = other.AttackDamage;
-	}
+	Name = other.Name;
+	HitPoints = other.HitPoints;
+	EnergyPoints = other.EnergyPoints;
+	AttackDamage = other.AttackDamage;
 	return (*this);
 }
 
@@ -31,40 +28,39 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->HitPoints > 0 || this->EnergyPoints > 0)
+	if (HitPoints < 1 || EnergyPoints < 1)
 	{
-		std::cout << "ClapTrap " << this->Name << " attacks " << target << " causing " << this->AttackDamage << " points of damage!" << std::endl;
-		this->EnergyPoints--;
+		std::cout << "ClapTrap " << Name << " is dead and cannot attack!" << std::endl;
 	}
 	else
 	{
-		std::cout << "ClapTrap " << this->Name << " is dead and cannot attack!" << std::endl;
+		std::cout << "ClapTrap " << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!" << std::endl;
+		EnergyPoints--;
 		return ;
 	}
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->HitPoints < 1 || this->EnergyPoints < 1)
+	if (HitPoints < 1 || EnergyPoints < 1)
 	{
-		std::cout << "ClapTrap " << this->Name << " is already dead!" << std::endl;
+		std::cout << "ClapTrap " << Name << " is already dead!" << std::endl;
 		return ;
 	}
-	this->HitPoints -= amount;
-	std::cout << "ClapTrap " << this->Name << " takes " << amount << " points of damage!" << std::endl;
-	if (this->HitPoints < 1)
-		std::cout << "ClapTrap " << this->Name << " is dead!" << std::endl;
+	HitPoints -= amount;
+	std::cout << "ClapTrap " << Name << " takes " << amount << " points of damage!" << std::endl;
+	if (HitPoints < 1)
+		std::cout << "ClapTrap " << Name << " is dead!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->HitPoints < 1 || this->EnergyPoints < 1)
+	if (HitPoints < 1 || EnergyPoints < 1)
 	{
-		std::cout << "ClapTrap " << this->Name << " is dead and cannot be repaired!" << std::endl;
+		std::cout << "ClapTrap " << Name << " is dead and cannot be repaired!" << std::endl;
 		return ;
 	}
-	this->HitPoints += amount;
-	this->EnergyPoints--;
-	std::cout << "ClapTrap " << this->Name << " is repaired for " << amount << " points!" << std::endl;
+	HitPoints += amount;
+	EnergyPoints--;
+	std::cout << "ClapTrap " << Name << " is repaired for " << amount << " points!" << std::endl;
 }
-

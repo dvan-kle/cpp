@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/22 14:40:20 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/22 16:20:43 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/06/12 21:55:11 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 {
-	std::cout << "FragTrap called: " << Name << " has been constructed" << std::endl;
+	std::cout << "\t\tFragTrap named: " << Name << " has been constructed" << std::endl;
 	HitPoints = 100;
 	EnergyPoints = 100;
 	AttackDamage = 30;
@@ -22,12 +22,12 @@ FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
-	std::cout << "FragTrap called: " << Name << " has been copied" << std::endl;
+	std::cout << "\t\tFragTrap named: " << Name << " has been copied" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	std::cout << "FragTrap has been assigned" << std::endl;
+	std::cout << "\t\tFragTrap has been assigned" << std::endl;
 	if (this != &other)
 	{
 		Name = other.Name;
@@ -40,10 +40,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap called: " << Name << " has been destroyed" << std::endl;
+	std::cout << "\t\tFragTrap named: " << Name << " has been destroyed" << std::endl;
 }
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap called: " << Name << " gives a High Five!!" << std::endl;
+	std::cout << "\t\tFragTrap named: " << Name << " gives a High Five!!" << std::endl;
 }

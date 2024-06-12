@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/22 13:58:53 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/22 15:53:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/06/12 21:24:33 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
-	std::cout << "A ScavTrap called: " << Name << " has been constructed" << std::endl;
+	std::cout << "ScavTrap named: " << Name << " has been constructed" << std::endl;
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
 	guard = false;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "A ScavTrap called: " << Name << " has been copied" << std::endl;
+	std::cout << "ScavTrap named: " << Name << " has been copied" << std::endl;
 	*this = other;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "A ScavTrap called: " << Name << " has been destructed" << std::endl;
+	std::cout << "ScavTrap named: " << Name << " has been destructed" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)

@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/03/22 13:58:53 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/03/22 16:20:53 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/06/12 21:55:32 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,29 @@
 
 ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 {
-	std::cout << "ScavTrap called: " << Name << " has been constructed" << std::endl;
+	std::cout << "\tScavTrap named: " << Name << " has been constructed" << std::endl;
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
 	guard = false;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap called: " << Name << " has been copied" << std::endl;
+	std::cout << "\tScavTrap named: " << Name << " has been copied" << std::endl;
 	*this = other;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap called: " << Name << " has been destructed" << std::endl;
+	std::cout << "\tScavTrap named: " << Name << " has been destructed" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	std::cout << "ScavTrap has been assigned" << std::endl;
-	if (this != &other) {
+	std::cout << "\tA ScavTrap has been assigned" << std::endl;
+	if (this != &other)
+	{
 		Name = other.Name;
 		HitPoints = other.HitPoints;
 		EnergyPoints = other.EnergyPoints;
@@ -44,17 +48,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 void ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
+	std::cout << "\tScavTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
 	if (guard == false) {
-		std::cout << "ScavTrap " << Name << " is now in gatekeeper mode" << std::endl;
+		std::cout << "\tScavTrap " << Name << " is now in gatekeeper mode" << std::endl;
 		guard = true;
 	}
 	else if (guard == true) {
-		std::cout << "ScavTrap " << Name << " has exited gatekeeper mode" << std::endl;
+		std::cout << "\tScavTrap " << Name << " has exited gatekeeper mode" << std::endl;
 		guard = false;
 	}
 }
