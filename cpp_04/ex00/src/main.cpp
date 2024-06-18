@@ -15,6 +15,7 @@ int main()
 	const WrongAnimal* wc = new WrongCat();
 
 	std::cout << std::endl << "Types:" << std::endl;
+	std::cout << "type is: " << animal->getType() << " " << std::endl;
 	std::cout << "type is: " << dog->getType() << " " << std::endl;
 	std::cout << "type is: " << cat->getType() << " " << std::endl;
 	std::cout << "type is: " << wc->getType() << " " << std::endl;
