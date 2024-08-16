@@ -59,7 +59,7 @@ void Bureaucrat::decrementGrade()
 	}
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	if (form.getSign())
 	{
@@ -67,7 +67,7 @@ void Bureaucrat::signForm(Form &form)
 	}
 	else if (_grade > form.getReqGrade())
 	{
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 	else
 	{
