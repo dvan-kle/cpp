@@ -1,9 +1,9 @@
-NAME = ex00
-SRC = Bureaucrat.cpp main.cpp
+NAME = ex01
+SRC = Bureaucrat.cpp main.cpp Form.cpp
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++11
 CC = c++
 
 all: $(NAME)
