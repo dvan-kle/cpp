@@ -5,9 +5,11 @@
 
 class ShrubberyCreationForm : public AForm
 {
+    private:
+        std::string _target;
     public:
         ShrubberyCreationForm(std::string target);
-        ShrubberyCreationForm(const ShrubberyCreationForm& other);
+        ShrubberyCreationForm(const ShrubberyCreationForm& other) = delete;
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other) = delete;
         ~ShrubberyCreationForm();
 

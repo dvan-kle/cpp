@@ -5,9 +5,11 @@
 
 class RobotomyRequestForm : public AForm
 {
+    private:
+        std::string _target;
     public:
         RobotomyRequestForm(std::string target);
-        RobotomyRequestForm(const RobotomyRequestForm& other);
+        RobotomyRequestForm(const RobotomyRequestForm& other) = delete;
         RobotomyRequestForm& operator=(const RobotomyRequestForm& other) = delete;
         ~RobotomyRequestForm();
 
