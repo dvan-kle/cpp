@@ -11,31 +11,41 @@
 /* ************************************************************************** */
 
 #include "../incl/Bureaucrat.hpp"
-#include "../incl/Form.hpp"
+#include "../incl/AForm.hpp"
+#include "../incl/PresidentialPardonForm.hpp"
+#include "../incl/RobotomyRequestForm.hpp"
+#include "../incl/ShrubberyCreationForm.hpp"
 
 int main(void)
 {
 	try
 	{
+		AForm *f1 = new PresidentialPardonForm("target1");
+		AForm *f2 = new RobotomyRequestForm("target2");
+		AForm *f3 = new ShrubberyCreationForm("target3");
+
 		Bureaucrat b1("Bureaucrat 1", 1);
 		Bureaucrat b2("Bureaucrat 2", 150);
-
-		Form f1("Form 1", 1, 1);
-		Form f2("Form 2", 150, 150);
-		Form f3("Form 3", 1, 150);
 
 		std::cout << b1 << std::endl;
 		std::cout << b2 << std::endl;
 
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;
+		std::cout << *f1 << std::endl;
+		std::cout << *f2 << std::endl;
+		std::cout << *f3 << std::endl;
 
-		b1.signForm(f1);
-		b2.signForm(f2);
-		b2.signForm(f3);
+		b1.signForm(*f1);
+		b1.signForm(*f2);
+		b1.signForm(*f3);
+
+		b1.executeForm(*f1);
+		b1.executeForm(*f2);
+		b1.executeForm(*f3);
 	}
-	catch (std::exception &exception)
+	catch(const std::exception& e)
 	{
-		std::cout << exception.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
+	
+	
 }
