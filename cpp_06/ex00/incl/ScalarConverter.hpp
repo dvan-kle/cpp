@@ -12,15 +12,15 @@
 
 #pragma once
 
+#include <iostream>
+
 class ScalarConverter 
 {
-	private:
-		ScalarConverter();
-
-		~ScalarConverter();	
 	public:
-		ScalarConverter(ScalarConverter const & src);
-		ScalarConverter & operator=(ScalarConverter const & src);
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter& other) = delete;
+		ScalarConverter& operator=(const ScalarConverter& other) = delete;
+		virtual ~ScalarConverter() = 0;
 
-		// jatoch
+		static void convert(std::string input);
 };
