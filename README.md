@@ -57,9 +57,3 @@ The C++ Modules are divided into several projects. Below is an overview:
     - Working with `std::unique_ptr`, `std::shared_ptr`, and `std::weak_ptr`
     - Managing memory using smart pointers
 
-## Installation
-
-To work on the modules, clone the repository to your local machine:
-
-```bash
-git clone https://github.com/dvan-kle/cpp
