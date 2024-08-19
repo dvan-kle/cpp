@@ -20,9 +20,9 @@ int main(void)
 {
 	try
 	{
-		AForm *f1 = new PresidentialPardonForm("target1");
-		AForm *f2 = new RobotomyRequestForm("target2");
-		AForm *f3 = new ShrubberyCreationForm("target3");
+		AForm *ppf = new PresidentialPardonForm("target1");
+		AForm *rrf = new RobotomyRequestForm("target2");
+		AForm *scf = new ShrubberyCreationForm("target3");
 
 		Bureaucrat b1("Bureaucrat 1", 1);
 		Bureaucrat b2("Bureaucrat 2", 150);
@@ -30,21 +30,21 @@ int main(void)
 		std::cout << b1 << std::endl;
 		std::cout << b2 << std::endl;
 
-		std::cout << *f1 << std::endl;
-		std::cout << *f2 << std::endl;
-		std::cout << *f3 << std::endl;
+		std::cout << *ppf << std::endl;
+		std::cout << *rrf << std::endl;
+		std::cout << *scf << std::endl;
 
-		b1.signForm(*f1);
-		b1.signForm(*f2);
-		b1.signForm(*f3);
+		b1.signForm(*ppf);
+		b1.signForm(*scf);
+		b1.signForm(*rrf);
 
-		b1.executeForm(*f1);
-		b1.executeForm(*f2);
-		b1.executeForm(*f3);
+		b1.executeForm(*ppf);
+		b1.executeForm(*scf);
+		b1.executeForm(*rrf);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception &exception)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << exception.what() << std::endl;
 	}
 	
 	

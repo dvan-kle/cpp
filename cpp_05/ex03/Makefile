@@ -1,9 +1,11 @@
-NAME = ex02
-SRC = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+NAME = ex03
+SRC = Bureaucrat.cpp main.cpp AForm.cpp \
+		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp Intern.cpp
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
-FLAGS = -Wall -Wextra -Werror -std=c++11
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address -std=c++11
 CC = c++
 
 all: $(NAME)
@@ -19,10 +21,10 @@ $(OBJ_DIR):
 	@mkdir $(OBJ_DIR)
 
 clean:
-	@rm -rf $(OBJ_DIR) target3_shrubbery
+	@rm -rf $(OBJ_DIR) target2_shrubbery
 
 fclean:
-	@rm -rf $(OBJ_DIR) $(NAME) target3_shrubbery
+	@rm -rf $(OBJ_DIR) $(NAME) target2_shrubbery
 
 re: fclean all
 
