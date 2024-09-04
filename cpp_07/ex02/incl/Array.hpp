@@ -21,4 +21,5 @@ class Array
         unsigned int _size;
 };
 
+#include "../src/Array.tpp"
 
