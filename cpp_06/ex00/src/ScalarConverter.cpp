@@ -52,5 +52,5 @@ void ScalarConverter::printFloat(float f)
 
 void ScalarConverter::printDouble(double d)
 {
-    
+    std::cout << d << std::endl;
 }
