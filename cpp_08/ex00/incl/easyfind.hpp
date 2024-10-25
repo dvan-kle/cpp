@@ -3,5 +3,6 @@
 #include <iostream>
 
 template <typename T>
+typename T::iterator easyfind(T &container, int value);
 
-T 
+#include "../src/easyfind.tpp"

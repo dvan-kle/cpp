@@ -1,5 +1,5 @@
-NAME = ex01
-SRC = main.cpp Span.cpp
+NAME = ex02
+SRC = main.cpp 
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
