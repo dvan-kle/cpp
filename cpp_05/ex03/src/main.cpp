@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 15:16:15 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/08/16 16:53:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/11/13 10:10:05 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,27 @@
 
 int main()
 {
+	Bureaucrat b1("Bureaucrat1", 1);
+	Bureaucrat b2("Bureaucrat2", 50);
+	Intern alex;
+	AForm *ppf = NULL;
+	AForm *scf = NULL;
+	AForm *rrf = NULL;
+	AForm *random = NULL;
+	
     try
 	{
-        Bureaucrat b1("Bureaucrat1", 1);
-        Bureaucrat b2("Bureaucrat2", 50);
-        Intern alex;
-
-        AForm *ppf = alex.makeForm("PresidentialPardon", "target1");
-        AForm *scf = alex.makeForm("ShrubberyCreation", "target2");
-        AForm *rrf = alex.makeForm("RobotomyRequest", "target3");
+        ppf = alex.makeForm("PresidentialPardon", "target1");
+        scf = alex.makeForm("ShrubberyCreation", "target2");
+        rrf = alex.makeForm("RobotomyRequest", "target3");
 		if (ppf == NULL || scf == NULL || rrf == NULL)
 		{
 			std::cout << "One of the forms could not be created." << std::endl;
 			return 1;
 		}
-        //Aform *random = alex.makeForm("random", "target4");
-
+        random = alex.makeForm("random", "target4");
+		
+		std::cout << *random << std::endl;
 
         std::cout << b1 << std::endl;
         std::cout << b2 << std::endl;
@@ -54,14 +59,15 @@ int main()
         b2.signForm(*rrf);
         b2.signForm(*rrf);
 
-        delete ppf;
-        delete scf;
-        delete rrf;
     }
     catch(const std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-
+	
+	delete ppf;
+	delete scf;
+	delete rrf;
+	delete random;
     return 0;
 }

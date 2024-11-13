@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/07/23 15:16:15 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/08/16 16:53:35 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/11/13 10:31:39 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ int main(void)
 		b1.executeForm(*ppf);
 		b1.executeForm(*scf);
 		b1.executeForm(*rrf);
+
+		delete ppf;
+		delete rrf;
+		delete scf;
 	}
 	catch(const std::exception &exception)
 	{
 		std::cerr << exception.what() << std::endl;
 	}
-	
-	
 }
