@@ -1,9 +1,9 @@
-NAME = ScalarConverter
+NAME = ex00
 SRC = ScalarConverter.cpp main.cpp
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++11
 CC = c++
 
 all: $(NAME)
