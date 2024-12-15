@@ -147,7 +147,7 @@ void ScalarConverter::convert(const std::string &input)
 }
 
 
-void ScalarConverter::print_char(const std::string &input)
+void print_char(const std::string &input)
 {
 	char c = input[0];
 	std::cout << "char: " << c << std::endl;
@@ -155,7 +155,7 @@ void ScalarConverter::print_char(const std::string &input)
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
-void ScalarConverter::print_int(const std::string &input)
+void print_int(const std::string &input)
 {
 	long long i = std::stoll(input);
 	std::cout << "char: ";
@@ -177,7 +177,7 @@ void ScalarConverter::print_int(const std::string &input)
 		std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
-void ScalarConverter::print_float(const std::string &input)
+void print_float(const std::string &input)
 {
 	double f = std::stof(input);
 		if (static_cast<int>(f) < 32 || static_cast<int>(f) > 126)
@@ -201,7 +201,7 @@ void ScalarConverter::print_float(const std::string &input)
 	
 }
 
-void ScalarConverter::print_double(const std::string &input)
+void print_double(const std::string &input)
 {
 	double d = stod(input);
 		if (static_cast<int>(d) < 32 || static_cast<int>(d) > 126)
@@ -223,7 +223,7 @@ void ScalarConverter::print_double(const std::string &input)
 			std::cout << "double: " << d << std::endl;
 		}
 }
-void ScalarConverter::print_word(const std::string &input)
+void print_word(const std::string &input)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;

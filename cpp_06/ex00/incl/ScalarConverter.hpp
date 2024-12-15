@@ -6,7 +6,7 @@
 /*   By: dvan-kle <dvan-kle@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/18 16:14:51 by dvan-kle      #+#    #+#                 */
-/*   Updated: 2024/12/10 19:35:10 by dvan-kle      ########   odam.nl         */
+/*   Updated: 2024/12/15 19:20:31 by dvan-kle      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ class ScalarConverter
 
 		static void convert(const std::string &input);
 
-		static void print_char(const std::string &input);
-		static void print_int(const std::string &input);
-		static void print_float(const std::string &input);
-		static void print_double(const std::string &input);
-		static void print_word(const std::string &input);
 };
+
+void print_char(const std::string &input);
+void print_int(const std::string &input);
+void print_float(const std::string &input);
+void print_double(const std::string &input);
+void print_word(const std::string &input);
