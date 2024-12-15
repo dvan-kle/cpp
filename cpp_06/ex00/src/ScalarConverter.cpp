@@ -87,7 +87,12 @@ literal_type getType(const std::string &input)
 	{
 		char first = input[0];
 		if (first > 31 && first < 127)
-			return CHAR;
+		{
+			if (isdigit(first))
+				return INT;
+			else
+				return CHAR;
+		}
 	}
 	else if (check_if_float(input))
 		return FLOAT;
@@ -222,10 +227,30 @@ void ScalarConverter::print_word(const std::string &input)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	if (input == "nanf")
+	if (input == "nanf" || input == "nan")
 	{
 		std::cout << "float: nanf" << std::endl;
 		std::cout << "double: nan" << std::endl;
+	}
+	else if (input == "+inff")
+	{
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
+	else if (input == "-inff")
+	{
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	else if (input == "+inf")
+	{
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
+	else if (input == "-inf")
+	{
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
 	}
 	else
 	{
