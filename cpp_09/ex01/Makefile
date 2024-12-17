@@ -1,5 +1,5 @@
-NAME = btc
-SRC = main.cpp BitcoinExchange.cpp
+NAME = rpn
+SRC = main.cpp RPN.cpp
 VPATH = src
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 OBJ_DIR = obj
