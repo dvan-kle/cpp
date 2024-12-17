@@ -21,6 +21,7 @@ int main()
 		std::cout << "floatArray[" << i << "] = " << floatArray[i] << std::endl;
 		std::cout << "doubleArray[" << i << "] = " << doubleArray[i] << std::endl;
 		std::cout << "stringArray[" << i << "] = " << stringArray[i] << std::endl;
+		std::cout << std::endl;
 	}
 
 	try

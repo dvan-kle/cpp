@@ -1,10 +1,18 @@
 #include "../incl/Array.hpp" 	
 
 template <typename T>
-Array<T>::Array() : _array(NULL), _size(0) {}
+Array<T>::Array()
+{
+	_array = new T[0];
+	_size = 0;
+}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
+Array<T>::Array(unsigned int n)
+{
+	_array = new T[n];
+	_size = n;
+}
 
 template <typename T>
 Array<T>::Array(Array const & src) : _array(new T[src._size]), _size(src._size)
@@ -16,9 +24,10 @@ Array<T>::Array(Array const & src) : _array(new T[src._size]), _size(src._size)
 template <typename T>
 Array<T> & Array<T>::operator=(Array const & rhs)
 {
-	if (this != &rhs)
+	if (_array)
+		delete[] this->_array;
+	if (rhs.size() != 0)	
 	{
-		delete[] _array;
 		_array = new T[rhs._size];
 		_size = rhs._size;
 		for (unsigned int i = 0; i < _size; i++)
