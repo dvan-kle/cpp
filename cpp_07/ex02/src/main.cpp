@@ -6,6 +6,7 @@ int main()
 	Array<float> floatArray(5);
 	Array<double> doubleArray(5);
 	Array<std::string> stringArray(5);
+	Array<int> copyArray;
 
 	for (unsigned int i = 0; i < intArray.size(); i++)
 	{
@@ -23,6 +24,13 @@ int main()
 		std::cout << "stringArray[" << i << "] = " << stringArray[i] << std::endl;
 		std::cout << std::endl;
 	}
+
+	copyArray = intArray;
+	for (unsigned int i = 0; i < copyArray.size(); i++)
+	{
+		std::cout << "copyArray[" << i << "] = " << copyArray[i] << std::endl;
+	}
+	std::cout << std::endl;
 
 	try
 	{
