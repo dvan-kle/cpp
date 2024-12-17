@@ -4,17 +4,6 @@ Serializer::Serializer() {}
 
 Serializer::~Serializer() {}
 
-Serializer::Serializer(const Serializer &obj)
-{
-	(void)obj;
-}
-
-const Serializer &Serializer::operator=(const Serializer &obj)
-{
-	(void)obj;
-	return (*this);
-}
-
 uintptr_t Serializer::serialize(Data *ptr)
 {
 	return (reinterpret_cast<uintptr_t>(ptr));

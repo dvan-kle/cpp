@@ -6,19 +6,8 @@ ScalarConverter::ScalarConverter()
 {
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter &obj)
-{
-	*this = obj;
-}
-
 ScalarConverter::~ScalarConverter()
 {
-}
-
-const ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
-{
-	(void)obj;
-	return *this;
 }
 
 bool check_if_float(const std::string &input)
@@ -157,29 +146,40 @@ void print_char(const std::string &input)
 }
 void print_int(const std::string &input)
 {
-	long long i = std::stoll(input);
-	std::cout << "char: ";
-	if (i < 32 || i > 126)
-		std::cout << "Non displayable" << std::endl;
-	else
-		std::cout << static_cast<char>(i) << std::endl;
-	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
-			std::cout << "int: overflow" << std::endl;
-	else
-		std::cout << "int: " << i << std::endl;
-	if (i > std::numeric_limits<float>::max() || i < -std::numeric_limits<float>::max())
-		std::cout << "float: overflow" << std::endl;
-	else
-		std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-	if (i > std::numeric_limits<double>::max() || i < -std::numeric_limits<double>::max())
-		std::cout << "double: overflow" << std::endl;
-	else
-		std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+	try{
+		long long i = std::stoll(input);
+		std::cout << "char: ";
+		if (i < 32 || i > 126)
+			std::cout << "Non displayable" << std::endl;
+		else
+			std::cout << static_cast<char>(i) << std::endl;
+		if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+				std::cout << "int: overflow" << std::endl;
+		else
+			std::cout << "int: " << i << std::endl;
+		if (i > std::numeric_limits<float>::max() || i < -std::numeric_limits<float>::max())
+			std::cout << "float: overflow" << std::endl;
+		else
+			std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+		if (i > std::numeric_limits<double>::max() || i < -std::numeric_limits<double>::max())
+			std::cout << "double: overflow" << std::endl;
+		else
+			std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+	}
+	catch (std::out_of_range &e)
+	{
+		std::cout << "Error: int overflow" << std::endl;
+	}
+	catch (std::invalid_argument &e)
+	{
+		std::cout << "Error: invalid argument" << std::endl;
+	}
 }
 
 void print_float(const std::string &input)
 {
-	double f = std::stof(input);
+	try{
+		double f = std::stof(input);
 		if (static_cast<int>(f) < 32 || static_cast<int>(f) > 126)
 			std::cout << "char: Non displayable" << std::endl;
 		else
@@ -198,12 +198,22 @@ void print_float(const std::string &input)
 			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double " << static_cast<double>(f) << std::endl;
 		}
+	}
+	catch (std::out_of_range &e)
+	{
+		std::cout << "Error: float overflow" << std::endl;
+	}
+	catch (std::invalid_argument &e)
+	{
+		std::cout << "Error: invalid argument" << std::endl;
+	}
 	
 }
 
 void print_double(const std::string &input)
 {
-	double d = stod(input);
+	try{
+		double d = stod(input);
 		if (static_cast<int>(d) < 32 || static_cast<int>(d) > 126)
 			std::cout << "char: Non displayable" << std::endl;
 		else
@@ -222,6 +232,15 @@ void print_double(const std::string &input)
 			std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 		}
+	}
+	catch (std::out_of_range &e)
+	{
+		std::cout << "Error: double overflow" << std::endl;
+	}
+	catch (std::invalid_argument &e)
+	{
+		std::cout << "Error: invalid argument" << std::endl;
+	}
 }
 void print_word(const std::string &input)
 {
