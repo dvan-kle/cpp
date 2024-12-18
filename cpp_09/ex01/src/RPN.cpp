@@ -1,5 +1,7 @@
 #include "../incl/RPN.hpp"
 
+std::stack<double> RPN::_stack;
+
 RPN::RPN()
 {
 }
@@ -16,6 +18,7 @@ void RPN::calculate(const std::string &input)
 	while ((pos = str.find(" ")) != std::string::npos)
 	{
 		token = str.substr(0, pos);
+		std::cout << token << std::endl;
 		if (token == "+" || token == "-" || token == "*" || token == "/" || token == "%")
 		{
 			if (_stack.size() < 2)
@@ -58,7 +61,10 @@ void RPN::calculate(const std::string &input)
 		str.erase(0, pos + 1);
 	}
 	if (_stack.size() != 1)
+	{
+		std::cout << _stack.size() << std::endl;
 		std::cerr << "Error: Invalid input" << std::endl;
+	}
 	else
 		std::cout << _stack.top() << std::endl;
 }

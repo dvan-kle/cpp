@@ -1,69 +1,70 @@
 #include "../incl/Span.hpp"
 #include <climits>
+#include <algorithm>
 
 Span::Span(unsigned int n) : _n(n), _size(0)
 {
-    _array = new int[n];
-}   
+	_vec.reserve(n);
+}
 
 Span::Span(const Span &other)
 {
-    *this = other;
+	*this = other;
 }
 
 Span &Span::operator=(const Span &other)
 {
-    _n = other._n;
-    _size = other._size;
-    _array = new int[_n];
-    for (unsigned int i = 0; i < _size; i++)
-        _array[i] = other._array[i];
-    return *this;
+	_n = other._n;
+	_size = other._size;
+	_vec = other._vec;
+	return (*this);
 }
 
 Span::~Span()
 {
-    delete[] _array;
 }
 
 void Span::addNumber(int n)
 {
-    if (_size >= _n)
-        throw std::exception();
-    _array[_size++] = n;
+	if (_size >= _n)
+		throw Span::SpanFullException();
+	_vec.push_back(n);
+	_size++;
+}
+
+void Span::addNumberRange(int range)
+{
+	srand(time(NULL));
+	if (_size + range > _n)
+		throw Span::SpanFullException();
+	for (int i = 0; i < range; i++)
+	{
+		addNumber(rand());
+	}
 }
 
 int Span::shortestSpan()
 {
-    if (_size <= 1)
-        throw std::exception();
-    int min = INT_MAX;
-    for (unsigned int i = 0; i < _size; i++)
-    {
-        for (unsigned int j = i + 1; j < _size; j++)
-        {
-            int diff = _array[i] - _array[j];
-            if (diff < 0)
-                diff = -diff;
-            if (diff < min)
-                min = diff;
-        }
-    }
-    return min;
+	if (_size <= 1)
+		throw Span::SpanSizeException();
+	std::vector<int> tmp = _vec;
+	std::sort(tmp.begin(), tmp.end());
+	int min = INT_MAX;
+	for (unsigned int i = 1; i < _size; i++)
+	{
+		if (tmp[i] - tmp[i - 1] < min)
+			min = tmp[i] - tmp[i - 1];
+	}
+	return (min);
 }
 
 int Span::longestSpan()
 {
-    if (_size <= 1)
-        throw std::exception();
-    int min = INT_MAX;
-    int max = INT_MIN;
-    for (unsigned int i = 0; i < _size; i++)
-    {
-        if (_array[i] < min)
-            min = _array[i];
-        if (_array[i] > max)
-            max = _array[i];
-    }
-    return max - min;
+	if (_size <= 1)
+		throw Span::SpanSizeException();
+	std::vector<int> tmp = _vec;
+	std::sort(tmp.begin(), tmp.end());
+	return (tmp[_size - 1] - tmp[0]);
 }
+
+

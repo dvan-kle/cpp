@@ -12,17 +12,28 @@ int main()
     v.push_back(5);
 
 	
-    std::vector<int>::iterator it = easyfind(v, 3);
-    if (it != v.end())
-        std::cout << "Found: " << *it << std::endl;
-    else
-        std::cout << "Not found" << std::endl;
+    std::vector<int>::iterator it;
 
-    it = easyfind(v, 24);
-    if (it != v.end())
+	try
+	{
+		it = easyfind(v, 3);
         std::cout << "Found: " << *it << std::endl;
-    else
-        std::cout << "Not found" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+
+	try
+	{
+    	it = easyfind(v, 24);
+		std::cout << "Found: " << *it << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
     return 0;
 }

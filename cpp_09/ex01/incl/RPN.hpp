@@ -14,7 +14,8 @@ class RPN
 		const RPN &operator=(const RPN &obj) = delete;
 		virtual ~RPN();
 
+
 		static void calculate(const std::string &input);
+		
 };
 
-std::stack<double> RPN::_stack;

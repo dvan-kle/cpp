@@ -1,29 +1,57 @@
 #include <iostream>
 #include <stack>
 #include "../incl/MutantStack.hpp"
+#include <list>
 
 int main()
 {
     MutantStack<int> mstack;
+
     mstack.push(5);
     mstack.push(17);
-    std::cout << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    //[...]
-    mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
+    mstack.push(4);
+
+	std::cout << "Top: " << mstack.top() << std::endl;
+    std::cout << "Size: " << mstack.size() << std::endl;
+    std::cout << "Begin: " << *mstack.begin() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "Looping through stack..." << std::endl;
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
     {
-    std::cout << *it << std::endl;
-    ++it;
+        std::cout << *it << std::endl;
     }
-    std::stack<int> s(mstack);
-    return 0;
+    std::cout << std::endl;
+
+    mstack.pop();
+	std::cout << "Popped" << std::endl << std::endl;
+
+    std::cout << "Top: " << mstack.top() << std::endl;
+    std::cout << "Size: " << mstack.size() << std::endl;
+    std::cout << "Begin: " << *mstack.begin() << std::endl;
+    std::cout << std::endl;
+
+
+    std::cout << "Iterating through stack:" << std::endl;
+    for (auto &elem : mstack)
+    {
+        std::cout << elem << std::endl;
+    }
+	std::cout << std::endl << std::endl;
+
+	MutantStack<std::string> mstack2;
+	mstack2.push("Hello");	
+	mstack2.push("World");
+	mstack2.push("!");
+	for (MutantStack<std::string>::iterator it = mstack2.begin(); it != mstack2.end(); ++it)
+    {
+        std::cout << *it << std::endl;
+    }
+	std::cout << "Size: " << mstack2.size() << std::endl;
+	mstack2.pop();
+	mstack2.pop();
+	mstack2.pop();
+	std::cout << "Size: " << mstack2.size() << std::endl;
+
 }
+
