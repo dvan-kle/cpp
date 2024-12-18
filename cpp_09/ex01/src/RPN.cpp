@@ -13,13 +13,21 @@ RPN::~RPN()
 void RPN::calculate(const std::string &input)
 {
 	std::string str = input;
-	std::string token;
-	size_t pos = 0;
-	while ((pos = str.find(" ")) != std::string::npos)
+	char token;
+	for (size_t i = 0; i < str.length(); i++)
 	{
-		token = str.substr(0, pos);
-		std::cout << token << std::endl;
-		if (token == "+" || token == "-" || token == "*" || token == "/" || token == "%")
+		token = str[i];
+		if (std::isspace(token))
+			continue;
+		if (input[i + 1] != ' ' && input[i + 1] != '\0')
+		{
+			std::cerr << "Error: Invalid input" << std::endl;
+			return;
+
+		}
+		if (std::isdigit(token))
+			_stack.push(std::stod(std::string(1,token)));
+		else if (token == '+' || token == '-' || token == '*' || token == '/')
 		{
 			if (_stack.size() < 2)
 			{
@@ -30,13 +38,13 @@ void RPN::calculate(const std::string &input)
 			_stack.pop();
 			double b = _stack.top();
 			_stack.pop();
-			if (token == "+")
+			if (token == '+')
 				_stack.push(b + a);
-			else if (token == "-")
+			else if (token == '-')
 				_stack.push(b - a);
-			else if (token == "*")
+			else if (token == '*')
 				_stack.push(b * a);
-			else if (token == "/")
+			else if (token == '/')
 			{
 				if (a == 0)
 				{
@@ -48,17 +56,9 @@ void RPN::calculate(const std::string &input)
 		}
 		else
 		{
-			try
-			{
-				_stack.push(std::stod(token));
-			}
-			catch(const std::exception& e)
-			{
-				std::cerr << "Error: Invalid input" << std::endl;
-				return;
-			}
+			std::cerr << "Error: Invalid input" << std::endl;
+			return;
 		}
-		str.erase(0, pos + 1);
 	}
 	if (_stack.size() != 1)
 	{
