@@ -18,5 +18,7 @@ class BitcoinExchange
 
 		void getInput(std::string filename);
 		void checkInputLine(std::string line);
+
+		double getRate(std::string date);
     
 };

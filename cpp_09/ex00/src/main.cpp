@@ -1,12 +1,17 @@
 #include "../incl/BitcoinExchange.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
-	av[1] = nullptr;
-	ac = 0;
+	
+	if (ac != 2)
+	{
+		std::cerr << "Error: Invalid number of arguments" << std::endl;
+		return 1;
+	}
 	BitcoinExchange bitcoinexchange;
 
 	bitcoinexchange.getExchangeRates();
-	bitcoinexchange.printMap();
+	bitcoinexchange.getInput(av[1]);
 	return 0;
 }
