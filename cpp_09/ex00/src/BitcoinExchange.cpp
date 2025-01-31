@@ -63,7 +63,7 @@ void BitcoinExchange::checkInputLine(std::string line)
 
 	if (line.find('|') == std::string::npos || line[0] == '|' || line[line.size() - 1] == '|')
 	{
-		std::cerr << "Error: Invalid input" << std::endl;
+		std::cerr << "Error: bad input => " << line << std::endl;
 		return;
 	}
 	date = line.substr(0, line.find('|') - 1);
@@ -83,9 +83,14 @@ void BitcoinExchange::checkInputLine(std::string line)
 		}
 	}
 	rate = std::stod(line.substr(line.find('|') + 1));
-	if (rate < 0 || rate > 1000)
+	if (rate < 0)
 	{
-		std::cerr << "Error: Invalid rate" << std::endl;
+		std::cerr << "Error: not a positive number" << std::endl;
+		return;
+	}
+	if (rate > 1000)
+	{
+		std::cerr << "Error: too large a number" << std::endl;
 		return;
 	}
 	double exchangeRate = getRate(date);
